@@ -11,6 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Receitas.SharedKernel", "Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Receitas.Domain", "Receitas.Domain\Receitas.Domain.csproj", "{BE8C0ED4-06ED-455A-9CDF-05F0B845C92B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{0F7B602A-B80D-41ED-A42E-4128B5FCE676}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +41,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FC46B0B2-A068-4623-B137-CEA8AF6B5243} = {0F7B602A-B80D-41ED-A42E-4128B5FCE676}
+		{5B1082AE-7445-4AB9-B359-38C6C77EE5BB} = {0F7B602A-B80D-41ED-A42E-4128B5FCE676}
+		{A72ADC7D-023F-4302-A470-21EB66F0D60F} = {0F7B602A-B80D-41ED-A42E-4128B5FCE676}
+		{BE8C0ED4-06ED-455A-9CDF-05F0B845C92B} = {0F7B602A-B80D-41ED-A42E-4128B5FCE676}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {43A17B85-A5F5-445F-BA38-52C7A3B2316F}
