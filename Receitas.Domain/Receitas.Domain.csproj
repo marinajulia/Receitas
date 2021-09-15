@@ -24,9 +24,4 @@
     <ProjectReference Include="..\Receitas.SharedKernel\Receitas.SharedKernel.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\ReceitaFotos\Dto\" />
-    <Folder Include="Services\Receita\Dto\" />
-  </ItemGroup>
-
 </Project>
