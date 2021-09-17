@@ -18,12 +18,21 @@ namespace Receitas
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options => {
+                options.AddPolicy("SiteCorsPolicy", builder =>
+                builder.AllowAnyOrigin()
+                 .AllowAnyMethod()
+                 .AllowAnyHeader());
+            });
 
-            services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Receitas", Version = "v1" });
             });
+
+            services.AddControllers();
+            //services.Resolve();
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

@@ -1,6 +1,6 @@
 ﻿namespace Receitas.Domain.Services.ReceitaFotos
 {
-    public class ReceitaFotosRepository
+    public class ReceitaFotosService : IReceitaFotosService
     {
     }
 }
