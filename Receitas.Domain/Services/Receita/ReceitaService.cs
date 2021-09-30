@@ -1,5 +1,6 @@
 ﻿using Receitas.Domain.Services.Receita;
 using Receitas.Domain.Services.Receita.Dto;
+using Receitas.Domain.Services.Receitas.Entities;
 using Receitas.SharedKernel.Notification;
 using System;
 using System.Collections.Generic;
@@ -76,7 +77,27 @@ namespace Receitas.Domain.Services
 
         public ReceitaDto Post(ReceitaDto receitaDto)
         {
-            throw new NotImplementedException();
+            if (receitaDto.Nome == null || receitaDto.Descricao == null || receitaDto.Dificuldade < 0
+                || receitaDto.Dificuldade > 10)
+                return _notification.AddWithReturn<ReceitaDto>("Ops.. existem campos inválidos");
+
+            var receita = _receitaRepository.Post(new ReceitaEntity
+            {
+                Descricao = receitaDto.Descricao,
+                Dificuldade = receitaDto.Dificuldade,
+                Horas = receitaDto.Horas,
+                Nome = receitaDto.Nome
+            });
+
+            return new ReceitaDto
+            {
+
+                Id = receita.Id,
+                Descricao = receita.Descricao,
+                Dificuldade = receita.Dificuldade,
+                Horas = receita.Horas,
+                Nome = receita.Nome
+            };
         }
     }
 }

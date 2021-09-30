@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Receitas.Domain.Services.Receita;
+using Receitas.Domain.Services.Receita.Dto;
 using Receitas.SharedKernel.Notification;
 
 namespace Receitas.Api.Controllers
@@ -46,6 +47,16 @@ namespace Receitas.Api.Controllers
                 return BadRequest(_notification.GetNotifications());
 
             return Ok(receita);
+        }
+
+        [HttpPost]
+        public IActionResult Post(ReceitaDto receita)
+        {
+            var response = _receitaService.Post(receita);
+            if (response == null)
+                return BadRequest(_notification.GetNotifications());
+
+            return Ok(response);
         }
     }
 }
