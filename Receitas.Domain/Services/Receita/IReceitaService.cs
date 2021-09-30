@@ -7,7 +7,7 @@ namespace Receitas.Domain.Services.Receita
     {
         ReceitaDto Post(ReceitaDto receitaDto);
         IEnumerable<ReceitaDto> Get();
-        IEnumerable<ReceitaDto> GetById();
+        ReceitaDto GetById(int id);
         IEnumerable<ReceitaDto> GetByName(string nome);
         bool Delete(int receita);
 

@@ -42,7 +42,7 @@ namespace Receitas.Infra.Repositories.Receita
             {
                 var receita = context.Receitas
                     .Where(x => x.Nome.Trim().ToLower().Contains(name));
-                return receita;
+                return receita.ToList();
             }
         }
 

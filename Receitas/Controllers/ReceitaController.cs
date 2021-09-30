@@ -27,5 +27,25 @@ namespace Receitas.Api.Controllers
 
             return Ok(receitas);
         }
+
+        [HttpGet("id")]
+        public IActionResult GetById(int id)
+        {
+            var receita = _receitaService.GetById(id);
+            if(receita == null)
+                return BadRequest(_notification.GetNotifications());
+
+            return Ok(receita);
+        }
+
+        [HttpGet("name")]
+        public IActionResult GetByName(string name)
+        {
+            var receita = _receitaService.GetByName(name);
+            if (receita == null)
+                return BadRequest(_notification.GetNotifications());
+
+            return Ok(receita);
+        }
     }
 }
