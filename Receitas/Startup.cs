@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Receitas.Api.Infra;
 //link planilha: https://docs.google.com/spreadsheets/d/1vLlFYLF7iTjmOlEfr9XqfkMlB3IGbTs2VdhK7Zsnt-k/edit#gid=0
 namespace Receitas
 {
@@ -31,7 +32,7 @@ namespace Receitas
             });
 
             services.AddControllers();
-            //services.Resolve();
+            services.Resolve();
 
         }
 

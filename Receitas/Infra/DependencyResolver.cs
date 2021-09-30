@@ -28,7 +28,7 @@ namespace Receitas.Api.Infra
 
             Context(services);
             Repositories(services);
-            //Services(services);
+            Services(services);
         }
         public static void Context(IServiceCollection services)
         {
