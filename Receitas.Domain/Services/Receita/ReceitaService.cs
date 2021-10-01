@@ -2,7 +2,6 @@
 using Receitas.Domain.Services.Receita.Dto;
 using Receitas.Domain.Services.Receitas.Entities;
 using Receitas.SharedKernel.Notification;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -20,9 +19,20 @@ namespace Receitas.Domain.Services
             _notification = notification;
         }
 
-        public bool Delete(int receita)
+        public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            var receita = _receitaRepository.GetById(id);
+
+            if (receita == null)
+            {
+                _notification.AddWithReturn<bool>("Ops.. o Id informado não existe!");
+                return false;
+            }
+                
+            _receitaRepository.Delete(receita);
+
+            return true;
+
         }
 
         public IEnumerable<ReceitaDto> Get()
@@ -77,9 +87,11 @@ namespace Receitas.Domain.Services
 
         public ReceitaDto Post(ReceitaDto receitaDto)
         {
-            if (receitaDto.Nome == null || receitaDto.Descricao == null || receitaDto.Dificuldade < 0
+            if (receitaDto.Nome == "" || receitaDto.Descricao == "" || receitaDto.Dificuldade < 0
                 || receitaDto.Dificuldade > 10)
                 return _notification.AddWithReturn<ReceitaDto>("Ops.. existem campos inválidos");
+
+            var name = _receitaRepository.GetNames(receitaDto.Nome);
 
             var receita = _receitaRepository.Post(new ReceitaEntity
             {

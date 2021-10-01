@@ -58,5 +58,16 @@ namespace Receitas.Api.Controllers
 
             return Ok(response);
         }
+
+        [HttpDelete]
+        public IActionResult Delete (int id)
+        {
+            var response = _receitaService.Delete(id);
+
+            if (!response)
+                return BadRequest(_notification.GetNotifications());
+
+            return Ok();
+        }
     }
 }
