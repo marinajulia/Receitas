@@ -31,8 +31,8 @@ namespace Receitas.Domain.Services
                 
             _receitaRepository.Delete(receita);
 
+            _notification.AddWithReturn<bool>("Receita deletada com sucesso!");
             return true;
-
         }
 
         public IEnumerable<ReceitaDto> Get()
@@ -91,8 +91,6 @@ namespace Receitas.Domain.Services
                 || receitaDto.Dificuldade > 10)
                 return _notification.AddWithReturn<ReceitaDto>("Ops.. existem campos inválidos");
 
-            var name = _receitaRepository.GetNames(receitaDto.Nome);
-
             var receita = _receitaRepository.Post(new ReceitaEntity
             {
                 Descricao = receitaDto.Descricao,
@@ -110,6 +108,20 @@ namespace Receitas.Domain.Services
                 Horas = receita.Horas,
                 Nome = receita.Nome
             };
+        }
+
+        public bool Put(int id)
+        {
+            var receita = _receitaRepository.GetById(id);
+            if(receita == null)
+            {
+                _notification.AddWithReturn<bool>("Ops.. parece que esse Id não existe");
+                return false;
+            }
+
+            _receitaRepository.Put(receita);
+            _notification.AddWithReturn<bool>("Receita atualizada com sucesso!");
+            return true;
         }
     }
 }

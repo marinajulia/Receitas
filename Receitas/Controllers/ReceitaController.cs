@@ -69,5 +69,16 @@ namespace Receitas.Api.Controllers
 
             return Ok();
         }
+
+        [HttpPut]
+        public IActionResult Put (int id)
+        {
+            var response = _receitaService.Put(id);
+
+            if (response == false)
+                return BadRequest(_notification.GetNotifications());
+
+            return Ok();
+        }
     }
 }

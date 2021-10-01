@@ -64,5 +64,15 @@ namespace Receitas.Infra.Repositories.Receita
                 return receita;
             }
         }
+
+        public bool Put(ReceitaEntity receita)
+        {
+            using (var context = new ApplicationContext())
+            {
+                context.Receitas.Update(receita);
+                context.SaveChanges();
+                return true;
+            }
+        }
     }
 }

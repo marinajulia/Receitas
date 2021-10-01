@@ -10,6 +10,7 @@ namespace Receitas.Domain.Services.Receita
         ReceitaEntity GetById(int id);
         ReceitaEntity GetNames(string name);
         bool Delete(ReceitaEntity receita);
+        bool Put(ReceitaEntity receita);
         ReceitaEntity Post(ReceitaEntity receita);
 
     }
