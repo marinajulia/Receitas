@@ -12,7 +12,7 @@ namespace Receitas.Infra.Data.Configuration.ReceitaFotos
             builder.HasKey(p => p.Id);
             builder.Property(p => p.IdReceita);
             builder.Property(p => p.File).IsRequired();
-            builder.Property(p => p.Format).IsRequired();
+            //builder.Property(p => p.Format).IsRequired();
         }
     }
 }

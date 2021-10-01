@@ -14,6 +14,6 @@ namespace Receitas.Domain.Services.ReceitaFotos.Entities
         public ReceitaEntity IdReceitas { get; set; }
 
         public byte[] File { get; set; }
-        public string Format { get; set; }
+        //public string Format { get; set; }
     }
 }
