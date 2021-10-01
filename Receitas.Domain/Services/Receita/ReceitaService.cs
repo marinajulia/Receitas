@@ -110,7 +110,7 @@ namespace Receitas.Domain.Services
             };
         }
 
-        public bool Put(int id)
+        public bool Put(int id, string nome, string descricao, int dificuldade, double horas)
         {
             var receita = _receitaRepository.GetById(id);
             if(receita == null)
@@ -118,6 +118,10 @@ namespace Receitas.Domain.Services
                 _notification.AddWithReturn<bool>("Ops.. parece que esse Id não existe");
                 return false;
             }
+            receita.Nome = nome;
+            receita.Descricao = descricao;
+            receita.Dificuldade = dificuldade;
+            receita.Horas = horas;
 
             _receitaRepository.Put(receita);
             _notification.AddWithReturn<bool>("Receita atualizada com sucesso!");

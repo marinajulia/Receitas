@@ -10,6 +10,6 @@ namespace Receitas.Domain.Services.Receita
         ReceitaDto GetById(int id);
         IEnumerable<ReceitaDto> GetByName(string nome);
         bool Delete(int receita);
-        bool Put(int receita);
+        bool Put(int id, string nome, string descricao, int dificuldade, double horas);
     }
 }

@@ -71,9 +71,9 @@ namespace Receitas.Api.Controllers
         }
 
         [HttpPut]
-        public IActionResult Put (int id)
+        public IActionResult Put (int Id, string Nome, string Descricao, int Dificuldade, double Horas)
         {
-            var response = _receitaService.Put(id);
+            var response = _receitaService.Put(Id, Nome, Descricao, Dificuldade, Horas);
 
             if (response == false)
                 return BadRequest(_notification.GetNotifications());
