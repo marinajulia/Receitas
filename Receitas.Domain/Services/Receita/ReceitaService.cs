@@ -110,18 +110,18 @@ namespace Receitas.Domain.Services
             };
         }
 
-        public bool Put(int id, string nome, string descricao, int dificuldade, double horas)
+        public bool Put(ReceitaDto receitaDto)
         {
-            var receita = _receitaRepository.GetById(id);
+            var receita = _receitaRepository.GetById(receitaDto.Id);
             if(receita == null)
             {
                 _notification.AddWithReturn<bool>("Ops.. parece que esse Id não existe");
                 return false;
             }
-            receita.Nome = nome;
-            receita.Descricao = descricao;
-            receita.Dificuldade = dificuldade;
-            receita.Horas = horas;
+            receita.Nome = receitaDto.Nome;
+            receita.Descricao = receitaDto.Descricao;
+            receita.Dificuldade = receitaDto.Dificuldade;
+            receita.Horas = receitaDto.Horas;
 
             _receitaRepository.Put(receita);
             _notification.AddWithReturn<bool>("Receita atualizada com sucesso!");
