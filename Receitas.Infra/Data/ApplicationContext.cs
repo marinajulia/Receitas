@@ -8,7 +8,7 @@ namespace Receitas.Infra.Data
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-8024PRG\SERVIDOR;Initial Catalog=Receitas;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-SN81A5J\SQLEXPRESS;Initial Catalog=Receitas;Integrated Security=True");
         }
         public DbSet<ReceitaEntity> Receitas { get; set; }
         public DbSet<ReceitaFotosEntity> ReceitaFotos { get; set; }
